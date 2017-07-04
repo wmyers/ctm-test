@@ -1,5 +1,9 @@
-'use strict';
+import {expect} from 'chai';
 
-describe('something', function() {
-
+describe('Boolean', () => {
+  describe('#something is true', () => {
+    it('should be true', () => {
+      expect(true).to.be.equal(true);
+    });
+  });
 });
