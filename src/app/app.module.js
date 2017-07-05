@@ -1,6 +1,10 @@
 import styles from './app.css';
-import bookService from '../service/book.service';
 import {getWordsInTextWithSet, getWordsInTextWithArray} from '../utils/getWordsInText';
+
+import {book} from '../service';
+import apiClient from '../service/apiClient';
+
+const bookService = book(apiClient);
 
 const RAILWAY_CHILDREN_URL = 'test-data/railway-children.txt';
 

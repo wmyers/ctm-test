@@ -1,10 +1,4 @@
-const cache = {};
-
-const getText = (url) => {
-  if (cache[url]) {
-    return Promise.resolve(cache[url]);
-  }
-
+const get = (url) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
     xhr.open('GET', url, true);
@@ -16,14 +10,12 @@ const getText = (url) => {
       if (xhr.status !== 200) { 
         return reject('Error: ' + xhr.status) 
       }
-
-      cache[url] = xhr.responseText;
+      
       return resolve(xhr.responseText);
     };
   })
-}
+} 
 
 export default {
-  getText
+  get
 };
-
