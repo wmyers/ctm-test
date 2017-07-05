@@ -1,5 +1,8 @@
 import styles from './app.css';
-import {getWordsInTextWithSet, getWordsInTextWithArray} from '../utils/getWordsInText';
+import {
+  getWordsDataInTextWithSet, 
+  getWordsDataInTextWithArray
+} from '../utils/getWordsDataInText';
 
 import {book} from '../service';
 import apiClient from '../service/apiClient';
@@ -26,7 +29,7 @@ class App {
     wordsContainer.innerHTML = markup;
   }
 
-  renderWordsCollection({collection, primesMap}) {
+  renderWordsData({collection, primesMap}) {
     let markup = `<div class="${styles.wordsInText}">`;
     collection.forEach(word => {
       const {value: num, isPrime} = primesMap.get(word);
@@ -40,16 +43,16 @@ class App {
     this.getBookText().then(text => this.renderBookText(text));
   };
 
-  getWordsInArray() {
+  getWordsDataUsingArray() {
     this.getBookText()
-    .then(text => getWordsInTextWithArray({text}))
-    .then(this.renderWordsCollection);
+    .then(text => getWordsDataInTextWithArray({text}))
+    .then(this.renderWordsData);
   };  
 
-  getWordsInSet() {
+  getWordsDataUsingSet() {
     this.getBookText()
-    .then(text => getWordsInTextWithSet({text}))
-    .then(this.renderWordsCollection);
+    .then(text => getWordsDataInTextWithSet({text}))
+    .then(this.renderWordsData);
   };
 
   clearText() {
@@ -60,8 +63,8 @@ class App {
     const markup = `
       <div class="${styles.controlBar}">
         <button name="getBook" type="button">Get book text</button>
-        <button name="getWordsInArray" type="button">Get words in book with array :(</button>
-        <button name="getWordsInSet" type="button">Get words in book with set :)</button>
+        <button name="getWordsDataUsingArray" type="button">Get words in book with array :(</button>
+        <button name="getWordsDataUsingSet" type="button">Get words in book with set :)</button>
         <button name="clearText" type="button">Clear text</button>
       </div>
     `;
