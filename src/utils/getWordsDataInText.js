@@ -1,13 +1,16 @@
 import {formatPrimesInMap} from './getPrimesMap';
 
 const punctuation = /[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+\"\n\r]/g;
+const multiplespaces = /[ ]{2,}/g;
 
 const updateWordCount = (map, word) => {
   map.set(word, map.has(word) ? map.get(word)+1 : 1);
 };
 
 export const getTextArray = (text, limit) => {
-  return text.replace(punctuation, '')
+  return text.replace(punctuation, ' ')
+  .replace(multiplespaces, ' ')
+  .trim()
   .split(' ', limit)
   .map(word => word.length > 1 ? word.toLowerCase() : word)
 };
