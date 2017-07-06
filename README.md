@@ -14,6 +14,7 @@ Browse to <http://localhost:8080>
  - still not detecting apostrophes used as quotation marks (needs another regex)
  - use different O(n) approach for `getWordsDataInTextWithArray`
  - pagination of large texts using `limit` and `collection` params
+ - detect groups of capitalized initials as words
 
 ### Tested in:
  - Chrome `Version 58.0.3029.110 (64-bit)`
