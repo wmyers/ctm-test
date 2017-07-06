@@ -69,7 +69,8 @@ class App {
       </div>
     `;
     controlBarContainer.innerHTML = markup;
-    controlBarContainer.querySelectorAll('button').forEach(button => {
+    const buttons = Array.prototype.slice.call(controlBarContainer.querySelectorAll('button'));
+    buttons.forEach(button => {
       button.addEventListener('click', this[button.name].bind(this));
     })
   }
