@@ -14,3 +14,8 @@ Browse to <http://localhost:8080>
  - still not detecting apostrophes used as quotation marks (needs another regex)
  - use different O(n) approach for `getWordsDataInTextWithArray`
  - pagination of large texts using `limit` and `collection` params
+
+### Tested in:
+ - Chrome `Version 58.0.3029.110 (64-bit)`
+ - Firefox `54.0.1 (64-bit)`
+ - Safari `Version 9.1 (11601.5.17.1)`
